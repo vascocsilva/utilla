@@ -4,7 +4,7 @@ var webpack = require('webpack');
 var path = require('path');
 var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 var env = process.env.WEBPACK_ENV;
-var libraryName = 'utilla';
+var libraryName = 'Utilla';
 var plugins = [], outputFile;
 
 if (env === 'build') {
@@ -33,7 +33,7 @@ var config = {
       },
       {
         test: /(\.jsx|\.js)$/,
-        loader: "eslint-loader",
+        loader: 'eslint-loader',
         exclude: /node_modules/
       }
     ]
