@@ -8,4 +8,10 @@ export default class Utilla {
 
     return this._elem;
   }
+
+  hide() {
+    if(this._elem) {
+      this._elem.style.display = 'none';
+    }
+  }
 }
