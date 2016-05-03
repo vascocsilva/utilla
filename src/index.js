@@ -7,6 +7,16 @@ class Utilla {
     if(this._elem) {
       this._elem.style.display = 'none';
     }
+
+    return this;
+  }
+
+  show(displayType = '') {
+    if(this._elem) {
+      this._elem.style.display = displayType;
+    }
+
+    return this;
   }
 }
 
