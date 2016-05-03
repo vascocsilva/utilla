@@ -82,7 +82,6 @@ class Utilla {
   on(event, fn) {
     return this.each(function() {
       this[Utilla.prefix() + event] = fn;
-      debugger;
       this.addEventListener(event, fn, false);
     })
   }
