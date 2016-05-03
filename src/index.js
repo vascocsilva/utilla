@@ -6,6 +6,6 @@ export default class Utilla {
 
     this._elem = document.querySelector(elem);
 
-    return this;
+    return this._elem;
   }
 }
