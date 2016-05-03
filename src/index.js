@@ -3,9 +3,9 @@ class Utilla {
     this.elements = document.querySelectorAll(selector);
   }
 
-  each(callback) {
+  each(fn) {
     for (let i = 0; i < this.elements.length; i++) {
-      callback.call(this.elements[i]);
+      fn.call(this.elements[i]);
     }
 
     return this;
@@ -27,9 +27,9 @@ class Utilla {
     return this;
   }
 
-  on(event, callback) {
+  on(event, fn) {
     return this.each(function() {
-      this.addEventListener(event, callback, false)
+      this.addEventListener(event, fn, false)
     })
   }
 }
