@@ -1,5 +1,11 @@
 export default class Utilla {
-  constructor() {
-    console.log('Hello World')
+  u(elem) {
+    if (window === this) {
+      return new u(elem);
+    }
+
+    this._elem = document.querySelector(elem);
+
+    return this;
   }
 }
