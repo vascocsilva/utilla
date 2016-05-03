@@ -14,6 +14,12 @@
 */
 
 class Utilla {
+  // Prefix to use in functions handled by 'off' and 'on' methods
+  // to have a reference for the function associated to an event type
+  // so the event listener can be removed
+  // eg: uumouseenter, uumouseleave, uuclick
+  static prefix() { return 'uu'; }
+
   constructor(selector) {
     this.elements = document.querySelectorAll(selector);
   }
@@ -75,7 +81,17 @@ class Utilla {
 
   on(event, fn) {
     return this.each(function() {
-      this.addEventListener(event, fn, false)
+      this[Utilla.prefix() + event] = fn;
+      debugger;
+      this.addEventListener(event, fn, false);
+    })
+  }
+
+  // Remove eventListener from current elements
+  // @param event type
+  off(event) {
+    return this.each(function() {
+      this.removeEventListener(event, this[Utilla.prefix() + event]);
     })
   }
 }
