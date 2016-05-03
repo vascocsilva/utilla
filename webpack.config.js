@@ -1,11 +1,11 @@
 // webpack.config.js
 
-var webpack = require('webpack');
-var path = require('path');
+var webpack        = require('webpack');
+var path           = require('path');
 var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
-var env = process.env.WEBPACK_ENV;
-var libraryName = 'Utilla';
-var plugins = [], outputFile;
+var env            = process.env.WEBPACK_ENV;
+var libraryName    = 'u';
+var plugins        = [], outputFile;
 
 if (env === 'build') {
   plugins.push(new UglifyJsPlugin({ minimize: true }));

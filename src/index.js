@@ -1,12 +1,6 @@
-export default class Utilla {
-  u(elem) {
-    if (window === this) {
-      return new u(elem);
-    }
-
+class Utilla {
+  constructor(elem) {
     this._elem = document.querySelector(elem);
-
-    return this._elem;
   }
 
   hide() {
@@ -15,3 +9,7 @@ export default class Utilla {
     }
   }
 }
+
+let u = (selector) => new Utilla(selector);
+
+export default u;
