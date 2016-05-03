@@ -1,22 +1,36 @@
 class Utilla {
-  constructor(elem) {
-    this._elem = document.querySelector(elem);
+  constructor(selector) {
+    this.elements = document.querySelectorAll(selector);
+  }
+
+  each(callback) {
+    for (let i = 0; i < this.elements.length; i++) {
+      callback.call(this.elements[i]);
+    }
+
+    return this;
   }
 
   hide() {
-    if(this._elem) {
-      this._elem.style.display = 'none';
-    }
+    this.each(function() {
+      this.style.display = 'none';
+    });
 
     return this;
   }
 
   show(displayType = '') {
-    if(this._elem) {
-      this._elem.style.display = displayType;
-    }
+    this.each(function() {
+      this.style.display = displayType;
+    });
 
     return this;
+  }
+
+  on(event, callback) {
+    return this.each(function() {
+      this.addEventListener(event, callback, false)
+    })
   }
 }
 
