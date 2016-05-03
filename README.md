@@ -5,4 +5,8 @@
 ### TODOS
 
 * Method chaining ( return this )
-* Return instance
+* Add, remove, toggle css classes
+* Delay, ajax?, html
+* Filter, find, slice
+* Prev, next, parent
+* Serialize arrays (for forms)
