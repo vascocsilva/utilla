@@ -93,6 +93,11 @@ class Utilla {
       this.removeEventListener(event, this[Utilla.prefix() + event]);
     })
   }
+
+  // serialize Array
+  serializeArray() {
+    
+  }
 }
 
 let u = (selector) => new Utilla(selector);
