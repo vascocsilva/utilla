@@ -96,7 +96,19 @@ class Utilla {
 
   // serialize Array
   serializeArray() {
-    
+    let array = [];
+
+    this.each(function() {
+      for (let i = 0; i < this.elements.length; i++) {
+        let obj = {};
+
+        obj.value = this.elements[i].value
+
+        array.push(obj);
+      }
+    })
+
+    return array;
   }
 }
 
