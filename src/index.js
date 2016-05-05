@@ -121,7 +121,6 @@ class Utilla {
     let array = [];
 
     this.each(function() {
-      debugger;
       for (let i = 0; i < this.elements.length; i++) {
         let obj = {};
 
