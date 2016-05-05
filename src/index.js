@@ -48,7 +48,7 @@ class Utilla {
     return this;
   }
 
-  // Add a class to current selected elements
+  // Add a class to current selected elements (IE8+)
   // @param className (string)
   addClass(className) {
     this.each(function() {
@@ -62,7 +62,7 @@ class Utilla {
     return this;
   }
 
-  // Remove a class in current selected elements
+  // Remove a class in current selected elements (IE8+)
   // @param className (string)
   removeClass(className) {
     this.each(function() {
@@ -74,6 +74,28 @@ class Utilla {
           + className.split(' ').join('|')
           + '(\\b|$)', 'gi'), ' '
         );
+    });
+
+    return this;
+  }
+
+  // Toggle css class of elements (IE9+)
+  // @param className (string)
+  toggleClass(className) {
+    this.each(function() {
+      if (this.classList)
+        this.classList.toggle(className);
+      else {
+        let classes = this.className.split(' ');
+        let existingIndex = classes.indexOf(className);
+
+        if (existingIndex >= 0)
+          classes.splice(existingIndex, 1);
+        else
+          classes.push(className);
+
+        this.className = classes.join(' ');
+      }
     });
 
     return this;
@@ -99,6 +121,7 @@ class Utilla {
     let array = [];
 
     this.each(function() {
+      debugger;
       for (let i = 0; i < this.elements.length; i++) {
         let obj = {};
 
